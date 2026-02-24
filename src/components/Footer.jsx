@@ -1,3 +1,5 @@
+import alliesBadge from "../assets/Allies-lgbtq256x200.jpg";
+
 function Footer() {
   return (
     <footer className="site-footer">
@@ -28,13 +30,23 @@ function Footer() {
             </a>
           </div>
 
-          <div className="site-footer__section">
-            <h2 className="site-footer__heading">Hours</h2>
-            <p className="site-footer__text">Tuesday &amp; Thursday: 9a-8p</p>
-            <p className="site-footer__text">Wednesday: 10a-6p</p>
-            <p className="site-footer__text">Friday: 9a-5p</p>
-            <p className="site-footer__text">Saturday: 9a-4p</p>
-            <p className="site-footer__text">Sunday: Closed</p>
+          <div className="site-footer__hours-badge">
+            <div className="site-footer__section site-footer__section--hours">
+              <h2 className="site-footer__heading">Hours</h2>
+              <p className="site-footer__text">Tuesday &amp; Thursday: 9a-8p</p>
+              <p className="site-footer__text">Wednesday: 10a-6p</p>
+              <p className="site-footer__text">Friday: 9a-5p</p>
+              <p className="site-footer__text">Saturday: 9a-4p</p>
+              <p className="site-footer__text">Sunday: Closed</p>
+            </div>
+
+            <div className="site-footer__section site-footer__section--badge">
+              <img
+                src={alliesBadge}
+                alt="LGBTQ+ Allies badge"
+                className="site-footer__allies-badge"
+              />
+            </div>
           </div>
 
           <div className="site-footer__section site-footer__section--social">
