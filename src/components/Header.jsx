@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname]);
 
   const getNavLinkClass = ({ isActive }) =>
     isActive ? "site-nav__link site-nav__link--active" : "site-nav__link";
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header className="site-header">
@@ -39,16 +36,24 @@ function Header() {
           className={`site-nav ${isMenuOpen ? "site-nav--open" : ""}`}
           aria-label="Main navigation"
         >
-          <NavLink to="/" end className={getNavLinkClass}>
+          <NavLink to="/" end className={getNavLinkClass} onClick={closeMenu}>
             Home
           </NavLink>
-          <NavLink to="/services" className={getNavLinkClass}>
+          <NavLink to="/services" className={getNavLinkClass} onClick={closeMenu}>
             Services
           </NavLink>
-          <NavLink to="/meet-the-team" className={getNavLinkClass}>
+          <NavLink
+            to="/meet-the-team"
+            className={getNavLinkClass}
+            onClick={closeMenu}
+          >
             Meet the Team
           </NavLink>
-          <NavLink to="/contact-us" className={getNavLinkClass}>
+          <NavLink
+            to="/contact-us"
+            className={getNavLinkClass}
+            onClick={closeMenu}
+          >
             CONTACT
           </NavLink>
 
@@ -58,6 +63,7 @@ function Header() {
             role="button"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={closeMenu}
           >
             Book an Appointment
           </a>
