@@ -28,7 +28,7 @@ const routeCards = [
 function Home() {
   return (
     <section className="home-cards" aria-label="Site sections">
-      <div className="home-card home-card--static">
+      <div className="home-card home-card--static home-hero">
         <HeroCarousel className="hero-carousel--fill" intervalMs={5000} />
         <div className="home-card__copy">
           <p>
@@ -41,7 +41,7 @@ function Home() {
       </div>
 
       {routeCards.map((card) => (
-        <Link key={card.to} to={card.to} className="home-card">
+        <Link key={card.to} to={card.to} className="home-card home-card--route">
           <img
             src={card.media}
             alt={`${card.title} preview`}

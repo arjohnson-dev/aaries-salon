@@ -6,9 +6,16 @@
   --color-gray-100: #f4f4f4;
   --color-page-bg: #ffffff;
   --color-text: #000000;
+  --color-muted-text: #3f3f3f;
+  --color-divider: #d3d3d3;
+  --color-form-border: #c7c7c7;
+  --color-contact-rule: #777;
+  --color-accent-tan: #af9a77;
   --site-gutter: 24px;
+  --font-sans: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
 
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
 
   color-scheme: light;
 
@@ -64,7 +71,7 @@ body {
 .site-brand {
   color: var(--color-black);
   text-decoration: none;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: 3rem;
   line-height: 1;
 }
@@ -284,6 +291,16 @@ body {
   overflow: hidden;
 }
 
+.home-hero {
+  min-height: 0;
+  aspect-ratio: 16 / 4;
+}
+
+.home-card--route {
+  min-height: 0;
+  aspect-ratio: 16 / 4;
+}
+
 .home-card__media {
   width: 100%;
   height: 100%;
@@ -317,7 +334,7 @@ body {
   transform: translate(-50%, -50%);
   background: transparent;
   padding: 0;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(1.7rem, 6vw, 3rem);
   letter-spacing: 0.08em;
   line-height: 1;
@@ -337,7 +354,7 @@ body {
   margin: 0;
   color: var(--color-off-white);
   text-align: center;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(1.1rem, 2.5vw, 1.9rem);
   line-height: 1.35;
   max-width: 980px;
@@ -372,6 +389,13 @@ body {
 .services-page {
   display: grid;
   gap: 18px;
+}
+
+.services-hero {
+  width: calc(100% + (var(--site-gutter) * 2));
+  margin: calc(var(--site-gutter) * -1) calc(var(--site-gutter) * -1) 0;
+  min-height: 0;
+  aspect-ratio: 16 / 4;
 }
 
 .services-cards {
@@ -416,7 +440,7 @@ body {
   margin: 0 0 18px;
   text-align: center;
   color: var(--color-off-white);
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: var(--font-serif);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: clamp(2rem, 6vw, 3rem);
@@ -480,11 +504,15 @@ body {
   background: var(--color-white);
 }
 
-.team-page {
+.team-page,
+.contact-page {
   width: calc(100% + (var(--site-gutter) * 2));
   margin: calc(var(--site-gutter) * -1);
-  padding: 26px 24px 44px;
   background: var(--color-white);
+}
+
+.team-page {
+  padding: 26px 24px 44px;
 }
 
 .team-page__title {
@@ -526,7 +554,7 @@ body {
 .team-card__name {
   margin: 6px 0 0;
   text-align: center;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: var(--font-serif);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: clamp(1.12rem, 2.2vw, 2rem);
@@ -538,7 +566,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.8rem;
-  color: #3f3f3f;
+  color: var(--color-muted-text);
 }
 
 .team-list {
@@ -557,12 +585,12 @@ body {
 }
 
 .team-list__item + .team-list__item {
-  border-top: 1px solid #d3d3d3;
+  border-top: 1px solid var(--color-divider);
 }
 
 .team-list__name {
   margin: 0;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 1rem;
@@ -574,19 +602,17 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.74rem;
-  color: #3f3f3f;
+  color: var(--color-muted-text);
   white-space: nowrap;
 }
 
 .contact-page {
-  width: calc(100% + (var(--site-gutter) * 2));
-  margin: calc(var(--site-gutter) * -1);
-  padding: 28px 24px 52px;
-  background: var(--color-white);
+  padding: 0 24px 52px;
 }
 
 .contact-page__hero {
   margin: 0 -24px 26px;
+  aspect-ratio: 16 / 4;
 }
 
 .contact-page__title {
@@ -594,7 +620,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.22em;
   text-align: center;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(2.1rem, 6vw, 4rem);
 }
 
@@ -605,7 +631,7 @@ body {
 
 .contact-page__rule {
   width: 58px;
-  border-top: 1px solid #777;
+  border-top: 1px solid var(--color-contact-rule);
   margin: 16px auto 20px;
 }
 
@@ -652,7 +678,7 @@ body {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  border: 1px solid #c7c7c7;
+  border: 1px solid var(--color-form-border);
   background: transparent;
   padding: 10px 12px;
   font: inherit;
@@ -665,7 +691,7 @@ body {
 .contact-form button {
   margin-top: 4px;
   border: 1px solid #111;
-  background: #af9a77;
+  background: var(--color-accent-tan);
   color: var(--color-white);
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -757,9 +783,6 @@ body {
     gap: 18px;
   }
 
-  .contact-page {
-    padding-top: 36px;
-  }
 }
 
 @media (max-width: 560px) {
