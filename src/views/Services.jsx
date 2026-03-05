@@ -60,7 +60,11 @@ function Services() {
   return (
     <section className="services-page" aria-label="Services">
       <div className="home-card home-card--static services-hero">
-        <img src={servicesImage} alt="Services" className="home-card__media" />
+        <img
+          src={servicesImage}
+          alt="Services"
+          className="home-card__media"
+        />
         <span className="home-card__label home-card__label--feature">
           Services
         </span>

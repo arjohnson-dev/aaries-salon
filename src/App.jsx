@@ -7,7 +7,7 @@ import Home from "./views/Home";
 import Services from "./views/Services";
 import MeetTheTeam from "./views/MeetTheTeam";
 import ContactUs from "./views/ContactUs";
-import { preloadImageUrls } from "./assets/preloadImages";
+import { preloadImageUrls } from "./utils/preloadImages";
 
 function App() {
   useEffect(() => {
