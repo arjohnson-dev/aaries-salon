@@ -33,10 +33,12 @@ function Footer() {
           <div className="site-footer__hours-badge">
             <div className="site-footer__section site-footer__section--hours">
               <h2 className="site-footer__heading">Hours</h2>
-              <p className="site-footer__text">Monday &amp; Wednesday: 10-6</p>
-              <p className="site-footer__text">Tuesday &amp; Thursday: 9-8</p>
+              <p className="site-footer__text">Monday: Closed</p>
+              <p className="site-footer__text">Tuesday: 10-8</p>
+              <p className="site-footer__text">Wednesday: 10-6</p>
+              <p className="site-footer__text">Thursday: 12-7</p>
               <p className="site-footer__text">Friday: 9-5</p>
-              <p className="site-footer__text">Saturday: 9-4</p>
+              <p className="site-footer__text">Saturday: 9-2</p>
               <p className="site-footer__text">Sunday: Closed</p>
             </div>
 
