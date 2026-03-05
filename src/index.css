@@ -701,6 +701,29 @@ body {
   cursor: pointer;
 }
 
+.contact-form button:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.contact-form__status {
+  margin: 6px 0 0;
+  letter-spacing: 0.04em;
+  font-size: 0.88rem;
+}
+
+.contact-form__status--success {
+  color: #1f6a2f;
+}
+
+.contact-form__status--error {
+  color: #9f2323;
+}
+
+.contact-form__status--sending {
+  color: var(--color-muted-text);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-nav {
     transition: none;
