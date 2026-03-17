@@ -504,6 +504,72 @@ body {
   background: var(--color-white);
 }
 
+.events-page {
+  gap: 24px;
+}
+
+.events-empty {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  border: 1px solid var(--color-divider);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.event-card {
+  min-height: 360px;
+}
+
+.event-card__content {
+  display: grid;
+  gap: 20px;
+}
+
+.event-card__header {
+  display: grid;
+  gap: 12px;
+}
+
+.event-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.event-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border: 1px solid rgba(243, 239, 230, 0.75);
+  color: var(--color-off-white);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+}
+
+.event-card__title {
+  margin-bottom: 0;
+}
+
+.event-card__timing {
+  margin: 0;
+  text-align: center;
+  color: var(--color-off-white);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.event-card__description {
+  margin: 0;
+  color: var(--color-white);
+  line-height: 1.7;
+  text-align: center;
+}
+
 .team-page,
 .contact-page {
   width: calc(100% + (var(--site-gutter) * 2));
@@ -795,6 +861,10 @@ body {
 
   .service-card__content {
     padding: 86px 30px 36px;
+  }
+
+  .event-card__content {
+    gap: 24px;
   }
 
   .team-grid {

@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./views/Home";
 import Services from "./views/Services";
+import Events from "./views/Events";
 import MeetTheTeam from "./views/MeetTheTeam";
 import ContactUs from "./views/ContactUs";
 import { preloadImageUrls } from "./assets/preloadImages";
@@ -34,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/events" element={<Events />} />
           <Route path="/meet-the-team" element={<MeetTheTeam />} />
           <Route path="/contact-us" element={<ContactUs />} />
         </Routes>

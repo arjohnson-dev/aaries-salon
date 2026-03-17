@@ -23,3 +23,15 @@ The Contact Us form uses Formspree via `@formspree/react`.
 - Current form ID: `xpqyabga`
 
 If you need to switch inboxes, update the Formspree form ID in `src/views/ContactUs.jsx`.
+
+## Events feed
+
+The Events page reads from the Google Sheets API on the client.
+
+- Add `VITE_GOOGLE_SHEETS_API_KEY` to your `.env`
+- Add `VITE_GOOGLE_SHEETS_SPREADSHEET_ID` to your `.env`
+- Add `VITE_GOOGLE_SHEETS_RANGE` to your `.env` using the sheet tab and columns, for example `Events!A:I`
+
+Expected columns:
+
+`title,date,startTime,endTime,allDay,description,location,category,imageUrl`

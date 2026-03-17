@@ -12,6 +12,12 @@ const routeCards = [
     labelClass: "home-card__label--feature",
   },
   {
+    title: "Events",
+    to: "/events",
+    media: contactImage,
+    labelClass: "home-card__label--feature",
+  },
+  {
     title: "Meet the Team",
     to: "/meet-the-team",
     media: salonImage,
