@@ -1,6 +1,5 @@
 import servicesImage from "./aaries-services.jpg";
 import washImage from "./aaries-wash.jpg";
-import alliesBadge from "./Allies-lgbtq256x200.jpg";
 import arianaImage from "./ariana.jpg";
 import chairsImage from "./chairs.jpeg";
 import colorOneImage from "./color_1.jpg";
@@ -14,10 +13,14 @@ import shopFromBackImage from "./shopfromback.jpg";
 import taylorImage from "./taylor.jpeg";
 import trishImage from "./trish.jpg";
 
+const eventsImage = "/event.jpg";
+const loveIsLoveBadge = "/love-is-love.jpg";
+
 export const preloadImageUrls = [
+  eventsImage,
   servicesImage,
   washImage,
-  alliesBadge,
+  loveIsLoveBadge,
   arianaImage,
   chairsImage,
   colorOneImage,

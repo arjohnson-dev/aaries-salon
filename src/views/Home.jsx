@@ -4,11 +4,19 @@ import salonImage from "../assets/shopfromback.jpg";
 import servicesImage from "../assets/aaries-services.jpg";
 import contactImage from "../assets/outside.jpg";
 
+const eventsImage = "/event.jpg";
+
 const routeCards = [
   {
     title: "Services",
     to: "/services",
     media: servicesImage,
+    labelClass: "home-card__label--feature",
+  },
+  {
+    title: "Events",
+    to: "/events",
+    media: eventsImage,
     labelClass: "home-card__label--feature",
   },
   {

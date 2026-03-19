@@ -42,6 +42,9 @@ function Header() {
           <NavLink to="/services" className={getNavLinkClass} onClick={closeMenu}>
             Services
           </NavLink>
+          <NavLink to="/events" className={getNavLinkClass} onClick={closeMenu}>
+            Events
+          </NavLink>
           <NavLink
             to="/meet-the-team"
             className={getNavLinkClass}
