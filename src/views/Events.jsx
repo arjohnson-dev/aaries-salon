@@ -6,6 +6,8 @@ import {
   selectEventsForDisplay,
 } from "../lib/googleSheets";
 
+const eventsHeroImage = "/event.jpg";
+
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   weekday: "short",
   month: "long",
@@ -36,6 +38,11 @@ function formatEventTiming(event) {
   }
 
   return `${dateLabel} · ${startLabel} - ${timeFormatter.format(event.endAt)}`;
+}
+
+function handleEventImageError(event) {
+  event.currentTarget.onerror = null;
+  event.currentTarget.src = servicesImage;
 }
 
 function Events() {
@@ -82,12 +89,14 @@ function Events() {
   }, [config.apiKey, config.range, config.spreadsheetId, isConfigured]);
 
   return (
-    <section className="services-page events-page" aria-label="Upcoming events">
+    <section className="events-page" aria-label="Upcoming events">
       <div className="home-card home-card--static services-hero">
-        <img src={servicesImage} alt="Upcoming events" className="home-card__media" />
-        <span className="home-card__label home-card__label--feature">
-          Upcoming Events
-        </span>
+        <img src={eventsHeroImage} alt="Upcoming events" className="home-card__media" />
+        <div className="home-card__copy">
+          <span className="home-card__label home-card__label--feature">
+            Upcoming Events
+          </span>
+        </div>
       </div>
 
       {status === "loading" ? (
@@ -127,16 +136,18 @@ function Events() {
                 alt=""
                 className="service-card__media"
                 aria-hidden="true"
+                referrerPolicy="no-referrer"
+                onError={handleEventImageError}
               />
               <div className="service-card__overlay" aria-hidden="true" />
 
               <div className="service-card__content event-card__content">
                 <div className="event-card__header">
-                  <div className="event-card__badges">
-                    {event.isPast ? (
+                  {event.isPast ? (
+                    <div className="event-card__badges">
                       <span className="event-card__badge">Recently Ended</span>
-                    ) : null}
-                  </div>
+                    </div>
+                  ) : null}
 
                   <h2 className="service-card__title event-card__title">{event.title}</h2>
 

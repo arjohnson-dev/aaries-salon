@@ -30,8 +30,12 @@ The Events page reads from the Google Sheets API on the client.
 
 - Add `VITE_GOOGLE_SHEETS_API_KEY` to your `.env`
 - Add `VITE_GOOGLE_SHEETS_SPREADSHEET_ID` to your `.env`
-- Add `VITE_GOOGLE_SHEETS_RANGE` to your `.env` using the sheet tab and columns, for example `Events!A:I`
+- Add `VITE_GOOGLE_SHEETS_RANGE` to your `.env` using the sheet tab and columns, for example `events!A:H`
 
 Expected columns:
 
-`title,date,startTime,endTime,allDay,description,location,category,imageUrl`
+`title,date,startTime,endTime,allDay,description,imageUrl`
+
+Additional columns are ignored by the app, for example:
+
+`imageName`

@@ -4,6 +4,8 @@ import salonImage from "../assets/shopfromback.jpg";
 import servicesImage from "../assets/aaries-services.jpg";
 import contactImage from "../assets/outside.jpg";
 
+const eventsImage = "/event.jpg";
+
 const routeCards = [
   {
     title: "Services",
@@ -14,7 +16,7 @@ const routeCards = [
   {
     title: "Events",
     to: "/events",
-    media: contactImage,
+    media: eventsImage,
     labelClass: "home-card__label--feature",
   },
   {

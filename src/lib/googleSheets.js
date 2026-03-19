@@ -1,4 +1,4 @@
-const EXPECTED_HEADERS = [
+const LEGACY_FALLBACK_HEADERS = [
   "title",
   "date",
   "starttime",
@@ -10,6 +10,32 @@ const EXPECTED_HEADERS = [
   "imageurl",
 ];
 
+const CURRENT_REQUIRED_HEADERS = [
+  "title",
+  "date",
+  "starttime",
+  "endtime",
+  "allday",
+  "description",
+  "imageurl",
+];
+
+const CURRENT_OPTIONAL_HEADERS = [
+  "imagename",
+  "location",
+  "category",
+];
+
+const CURRENT_FALLBACK_HEADERS = [
+  ...CURRENT_REQUIRED_HEADERS,
+  "imagename",
+];
+
+const KNOWN_HEADERS = new Set([
+  ...CURRENT_REQUIRED_HEADERS,
+  ...CURRENT_OPTIONAL_HEADERS,
+]);
+
 function normalizeHeader(value) {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -18,6 +44,38 @@ function isTruthy(value) {
   return ["true", "1", "yes", "y"].includes(
     String(value ?? "").trim().toLowerCase(),
   );
+}
+
+function normalizeImageUrl(value) {
+  const raw = String(value ?? "").trim();
+
+  if (!raw) {
+    return "";
+  }
+
+  try {
+    const url = new URL(raw);
+    const isGoogleDriveUrl =
+      url.hostname === "drive.google.com" ||
+      url.hostname.endsWith(".drive.google.com");
+
+    if (!isGoogleDriveUrl) {
+      return raw;
+    }
+
+    const fileId =
+      url.pathname.match(/\/file\/d\/([^/]+)/)?.[1] ??
+      url.searchParams.get("id");
+
+    if (!fileId) {
+      return raw;
+    }
+
+    // Convert Drive share links into a direct image URL for <img src>.
+    return `https://lh3.googleusercontent.com/d/${fileId}=w2000`;
+  } catch {
+    return raw;
+  }
 }
 
 function parseDateParts(value) {
@@ -169,9 +227,7 @@ function normalizeRow(headers, row, index) {
     endTime: item.endtime,
     allDay,
     description: item.description,
-    location: item.location,
-    category: item.category,
-    imageUrl: item.imageurl,
+    imageUrl: normalizeImageUrl(item.imageurl),
     startAt,
     endAt,
   };
@@ -183,11 +239,18 @@ function extractRows(values) {
   }
 
   const firstRowHeaders = values[0].map(normalizeHeader);
-  const headerRowLooksValid = EXPECTED_HEADERS.every((header) =>
-    firstRowHeaders.includes(header),
+  const recognizedHeaders = firstRowHeaders.filter((header) =>
+    KNOWN_HEADERS.has(header),
   );
+  const headerRowLooksValid =
+    CURRENT_REQUIRED_HEADERS.every((header) => firstRowHeaders.includes(header)) &&
+    recognizedHeaders.length >= CURRENT_REQUIRED_HEADERS.length;
 
-  const headers = headerRowLooksValid ? firstRowHeaders : EXPECTED_HEADERS;
+  const fallbackHeaders =
+    values[0].length >= LEGACY_FALLBACK_HEADERS.length
+      ? LEGACY_FALLBACK_HEADERS
+      : CURRENT_FALLBACK_HEADERS;
+  const headers = headerRowLooksValid ? firstRowHeaders : fallbackHeaders;
   const rows = headerRowLooksValid ? values.slice(1) : values;
 
   return rows
