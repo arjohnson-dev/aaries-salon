@@ -61,7 +61,10 @@ function Footer() {
             <div className="site-footer__contact-details">
               <div className="site-footer__contact-block">
                 <p className="site-footer__label">Phone</p>
-                <a className="site-footer__contact-link" href="tel:+17344878669">
+                <a
+                  className="site-footer__contact-link"
+                  href="tel:+17344878669"
+                >
                   (734) 487-8669
                 </a>
               </div>
@@ -109,6 +112,16 @@ function Footer() {
           <p className="site-footer__copy">
             &copy; {new Date().getFullYear()} Aarie Styles Salon LLC. All Rights
             Reserved.
+          </p>
+          <p className="site-footer__dev-credit">
+            developed by{" "}
+            <a
+              href="https://arjohnson.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              arjohnson.dev
+            </a>
           </p>
         </div>
       </div>
